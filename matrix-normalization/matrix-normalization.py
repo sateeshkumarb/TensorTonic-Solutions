@@ -12,9 +12,6 @@ def matrix_normalization(matrix, axis=None, norm_type='l2'):
         if axis not in (0,1):
             return None
 
-    # if np.all(matrix,axis=axis):
-    #     return None
-
 
     matrix = np.asarray(matrix)
     if matrix.ndim != 2:
