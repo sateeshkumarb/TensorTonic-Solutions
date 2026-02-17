@@ -7,6 +7,7 @@ def majority_classifier(y_train, X_test):
     # Write code here
     (vals,counts) = np.unique(y_train,return_counts=True)
     if np.all(counts == counts[0]):
+        # if the frequency is same for all elements, then use 1st element in the train set.
         return np.full_like(X_test, y_train[0])
     else:
         idx = counts.argmax()
