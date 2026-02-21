@@ -20,8 +20,7 @@ def train_logistic_regression(X, y, lr=0.1, steps=1000):
         y_pred = _sigmoid(z)
         err = y_pred - y
         delta_lw = (1/n)*np.dot(X.T, err)
-        delta_lb = np.sum(err)
-        # print(f"delta_lw:{delta_lw},delta_lb:{delta_lb}")
+        delta_lb = (1/n)*np.sum(err)
         w = w - lr * delta_lw
         b = b - lr * delta_lb
         
