@@ -2,16 +2,12 @@ def min_max_scaling(data):
     """
     Scale each column of the data matrix to the [0, 1] range.
     """
-    cols = list()
-    d = data[0]
-    for j in range(len(d)):
-        cols.append([])
-
-    for d in data:
-        for j,v in enumerate(d):
-            cols[j].append(v)
-    maxs =[max(x) for x in cols]
-    mins = [min(x) for x in cols]
+    maxs = []
+    mins  = []
+    
+    for j in zip(*data):
+        maxs.append(max(j))
+        mins.append(min(j))
 
     for i,d in enumerate(data):
         for j,v in enumerate(d):
