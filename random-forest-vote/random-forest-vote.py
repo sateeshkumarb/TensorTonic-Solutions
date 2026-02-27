@@ -13,7 +13,8 @@ def random_forest_vote(predictions):
             count_matrix[int(pred)] = int(count)
         max_cnt = -1
         idx = 0
-        for k,v in count_matrix.items():
+        for k in sorted(count_matrix.keys()):
+            v = count_matrix[k]
             if v > max_cnt:
                 max_cnt = v
                 idx = k
