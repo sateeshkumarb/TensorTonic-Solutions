@@ -8,6 +8,7 @@ def k_means_centroid_update(points, assignments, k):
     mapping = {}
     for key,v in zip(assignments,points):
         mapping.setdefault(key,[]).append(v)
+        
     mlen = max([len(v[0]) for v in mapping.values() if v])
     for i in range(k):
         if mapping.get(i) is None:
@@ -22,8 +23,8 @@ def k_means_centroid_update(points, assignments, k):
         else:
             r = 0
         for j in range(r):
-            zeros = [x[j] for x in mapping[i]]
-            means[j]= sum(zeros)/len(zeros)
+            vals = [x[j] for x in mapping[i]]
+            means[j]= sum(vals)/len(vals)
         new_centroids.append(means)
 
     return new_centroids    
